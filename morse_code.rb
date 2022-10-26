@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.freeze
 
 MORSECODE = [
   '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....',
@@ -12,8 +10,9 @@ MORSECODE = [
 def decode_char(char)
   ABC[MORSECODE.find_index(char)]
 end
+
 def decode_word(word)
-  separate = word.split(' ')
+  separate = word.split
   full_word = []
   separate.each { |letter| full_word.append(decode_char(letter)) }
   full_word.join
@@ -29,6 +28,5 @@ def decode(sentence)
 
   full_sentence.join(' ')
 end
-
 
 p decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
